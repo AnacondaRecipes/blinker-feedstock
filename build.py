@@ -24,6 +24,11 @@ def run_build(ns):
         "--clobber-file",
         "./.abs/clobber_noarch.yaml",
     ]
+    if ns.output_folder:
+        cmd += [
+            "--output-folder",
+            ns.output_folder
+        ]
     print(f"Calling: {cmd}")
     subprocess.check_call(cmd)
 
@@ -39,6 +44,7 @@ def verify_config(ns):
 def main(args=None):
     p = ArgumentParser("build")
     p.add_argument("config", default="conda_build_config", nargs="?")
+    p.add_argument("--output-folder", action="store")
 
     ns = p.parse_args(args=args)
 
