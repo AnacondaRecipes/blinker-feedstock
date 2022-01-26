@@ -27,6 +27,7 @@ about:
   home: http://pythonhosted.org/blinker/
   license: MIT
   license_file: LICENSE
+  license_family: MIT
   summary: Fast, simple object-to-object and broadcast signaling
 
 extra:
