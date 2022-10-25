@@ -20,8 +20,12 @@ requirements:
     - python
 
 test:
+  requires:
+    - pip
   imports:
     - blinker
+  commands:
+    - pip check
 
 about:
   home: http://pythonhosted.org/blinker/
