@@ -10,7 +10,9 @@ source:
 
 build:
   number: 3
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: |
+    python -c "import os, json; print(json.dumps(dict(os.environ), sort_keys=True, indent=4))"
+    python setup.py install --single-version-externally-managed --record record.txt  # [unix]
 
 requirements:
   host:
