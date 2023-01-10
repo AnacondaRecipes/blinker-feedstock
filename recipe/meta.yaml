@@ -9,13 +9,29 @@ source:
   sha256: 471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
-
+  
 requirements:
   host:
     - python
     - setuptools
+    - x86 # [x86]
+    - x86_64 # [x86_64]
+    - linux # [linux]
+    - linux32 # [linux32]
+    - linux64 # [linux64]
+    - armv6l # [armv6l]
+    - armv7l # [armv7l]
+    - aarch64 # [aarch64]
+    - ppc64le # [ppc64le]
+    - s390x # [s390x]
+    - arm64 # [arm64]
+    - unix # [unix]
+    - win # [win]
+    - win32 # [win32]
+    - win64 # [win64]
+    - osx # [osx]
   run:
     - python
 
