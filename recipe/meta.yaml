@@ -10,7 +10,22 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: echo x86 # [x86]
+  script: echo x86_64 # [x86_64]
+  script: echo linux # [linux]
+  script: echo linux32 # [linux32]
+  script: echo linux64 # [linux64]
+  script: echo armv6l # [armv6l]
+  script: echo armv7l # [armv7l]
+  script: echo aarch64 # [aarch64]
+  script: echo ppc64le # [ppc64le]
+  script: echo s390x # [s390x]
+  script: echo arm64 # [arm64]
+  script: echo unix # [unix]
+  script: echo win # [win]
+  script: echo win32 # [win32]
+  script: echo win64 # [win64]
+
 
 requirements:
   host:
