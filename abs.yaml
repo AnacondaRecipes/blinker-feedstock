@@ -1,0 +1,4 @@
+channels:
+  - mesters_org
+build_parameters:
+  - "--suppress-variables"
