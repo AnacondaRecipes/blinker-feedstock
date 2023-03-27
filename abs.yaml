@@ -1,3 +1,4 @@
+pkg_build_image_tag: master
 channels:
   - mesters_org
 build_parameters:
