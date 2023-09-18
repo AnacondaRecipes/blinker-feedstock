@@ -9,8 +9,10 @@ source:
   sha256: 471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 3
+  script: |
+    python -c "import os, json; print(json.dumps(dict(os.environ), sort_keys=True, indent=4))"
+    python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   host:
@@ -20,13 +22,18 @@ requirements:
     - python
 
 test:
+  requires:
+    - pip
   imports:
     - blinker
+  commands:
+    - pip check
 
 about:
   home: http://pythonhosted.org/blinker/
   license: MIT
   license_file: LICENSE
+  license_family: MIT
   summary: Fast, simple object-to-object and broadcast signaling
 
 extra:
