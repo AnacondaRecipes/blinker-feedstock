@@ -23,12 +23,17 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   imports:
     - blinker
   commands:
     - pip check
+    - pytest --pyargs tests -vv
   requires:
     - pip
+    - pytest
+    - pytest-asyncio
 
 about:
   home: https://blinker.readthedocs.io/
