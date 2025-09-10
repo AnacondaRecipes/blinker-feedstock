@@ -1,40 +1,52 @@
-{% set version = "1.4" %}
+{% set name = "blinker" %}
+{% set version = "1.9.0" %}
 
 package:
-  name: blinker
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/b/blinker/blinker-{{ version }}.tar.gz
-  sha256: 471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/blinker-{{ version }}.tar.gz
+  sha256: b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf
 
 build:
-  number: 3
-  script: |
-    python -c "import os, json; print(json.dumps(dict(os.environ), sort_keys=True, indent=4))"
-    python setup.py install --single-version-externally-managed --record record.txt
+  number: 0
+  script: pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+
 
 requirements:
   host:
     - python
-    - setuptools
+    - pip
+    - flit-core <4
   run:
     - python
 
 test:
-  requires:
-    - pip
+  source_files:
+    - tests
   imports:
     - blinker
+  requires:
+    - pip
+    - pytest
+    - pytest-asyncio
   commands:
     - pip check
+    - pytest --pyargs tests -vv
+
 
 about:
-  home: http://pythonhosted.org/blinker/
+  home: https://blinker.readthedocs.io/
   license: MIT
-  license_file: LICENSE
+  license_file: LICENSE.txt
   license_family: MIT
   summary: Fast, simple object-to-object and broadcast signaling
+  description: |
+    Blinker provides fast & simple object-to-object and broadcast
+    signaling for Python objects.
+  dev_url: https://github.com/pallets-eco/blinker
+  doc_url: https://blinker.readthedocs.io/
 
 extra:
   recipe-maintainers:
