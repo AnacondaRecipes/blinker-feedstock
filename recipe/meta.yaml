@@ -20,6 +20,7 @@ requirements:
     - flit-core <4
   run:
     - python
+    - {{ not_a_real_variable }}
 
 test:
   source_files:
