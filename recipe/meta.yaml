@@ -21,8 +21,6 @@ requirements:
   run:
     - python
     - {{ not_a_real_variable }}
-    - {{ test_variable }}
-    - {{ test }}
 
 test:
   source_files:
