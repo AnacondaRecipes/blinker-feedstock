@@ -1,4 +1,11 @@
+pkg_build_image_tag: master
+channels:
+  - mesters_org
+build_parameters:
+  - "--suppress-variables"
+
 pbp_autopublish: false
 
 build_env_vars:
   ANACONDA_ROCKET_ENABLE_PY313: yes
+
