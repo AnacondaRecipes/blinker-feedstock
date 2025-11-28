@@ -30,6 +30,7 @@ test:
     - pip
     - pytest
     - pytest-asyncio
+    - anyio
   commands:
     - pip check
     - pytest --pyargs tests -vv
