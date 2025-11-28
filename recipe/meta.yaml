@@ -29,8 +29,9 @@ test:
   requires:
     - pip
     - pytest
-    - pytest-asyncio
-    - anyio
+    #- pytest-asyncio
+    #- anyio
+    - pytest-tornasync
   commands:
     - pip check
     - pytest --pyargs tests -vv
