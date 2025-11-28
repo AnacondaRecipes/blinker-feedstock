@@ -8,6 +8,9 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/blinker-{{ version }}.tar.gz
   sha256: b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf
+  patches:
+    # Add asyncio fixture to test_async_receiver
+    - 187.patch
 
 build:
   number: 1
@@ -29,8 +32,9 @@ test:
   requires:
     - pip
     - pytest
+    # pytest-asyncio 1.0.0 is not compatible with blinker 1.9.0.
+    # Replace it with pytest-tornasync for now.
     #- pytest-asyncio
-    #- anyio
     - pytest-tornasync
   commands:
     - pip check

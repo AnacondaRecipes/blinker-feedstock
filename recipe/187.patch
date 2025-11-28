@@ -1,0 +1,25 @@
+From cb2b55c211bcd3d622d525dd2cc1c7276d3d5b5c Mon Sep 17 00:00:00 2001
+From: Khem Raj <raj.khem@gmail.com>
+Date: Tue, 18 Nov 2025 13:06:49 -0800
+Subject: [PATCH] Add asyncio fixture to test_async_receiver
+
+This ensures that this test executes and passes
+with pytest-8.4+
+
+pytest now throws errors for such functions [1]
+which were skipped in older versions
+---
+ tests/test_signals.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tests/test_signals.py b/tests/test_signals.py
+index 93a9c48..959209c 100644
+--- a/tests/test_signals.py
++++ b/tests/test_signals.py
+@@ -257,6 +257,7 @@ def received(sender: t.Any) -> None:
+     assert [id(fn) for fn in sig.receivers.values()] == [fn_id]
+ 
+ 
++@pytest.mark.asyncio
+ async def test_async_receiver() -> None:
+     sentinel = []
